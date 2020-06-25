@@ -2,6 +2,10 @@
  const app = express();
  const connection = require("./database/database");
  const bodyParser = require("body-parser");
+ const cors = require("cors");
+
+ //Biblioteca para permitir consumo de API localmente com Axios
+ app.use(cors());
 
 // router
 const perguntaController = require("./Dominio/Pergunta/PerguntaController");

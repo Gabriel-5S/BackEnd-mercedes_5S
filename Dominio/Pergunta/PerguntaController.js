@@ -10,8 +10,8 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
 //Será melhor enviar pergunta por pergunta? Ou enviar um JSON com as 4 perguntas por página?
-router.post("/pergunta", (req, res) => {
-    var s = req.body.s;
+router.get("/pergunta/:s", (req, res) => {
+    var s = req.params.s;
     Pergunta.findAll({
         where: {s : s
         },

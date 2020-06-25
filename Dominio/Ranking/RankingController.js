@@ -2,9 +2,9 @@ const express = require("express");
 const router = express.Router();
 const Avaliacao = require("../Avaliacao/Avaliacao")
 
-router.post("/ranking",(req, res) => {
+router.get("/ranking/:x",(req, res) => {
     (async () => {
-            var x = req.body.x;
+            var x = req.params.x;
             var Answer_average_x = 'Answer_average_' + x;
             var Cost_center_Avg_x = "Cost_center_Avg_" + x;
             await Avaliacao.findAll({

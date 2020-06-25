@@ -122,7 +122,7 @@ router.post("/salvabd", (req,res) => {
         Answer_average_5s: Answer_average_5s,
     });
 
-    res.send("enviado com sucesso")
+    res.send("Enviado com sucesso!")
    })()
 });
 

@@ -30,7 +30,7 @@ router.post("/cadastro", (req, res) => {
 
 
 //Verificando login
-router.post("/login", (req, res) => {
+router.get("/login", (req, res) => {
     var email = req.body.User_email;
     var password = req.body.User_password;
     Login.findOne({
