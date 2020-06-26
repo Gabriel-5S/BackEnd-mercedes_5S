@@ -13,9 +13,9 @@ router.get("/ranking/:x",(req, res) => {
             group: ['Cost_center_id'],
             order: [[Avaliacao.sequelize.fn('AVG', Avaliacao.sequelize.col(Answer_average_x)), 'DESC']]
             }).then(ranking => {
-                res.json({             
-                    ranking: ranking
-                    });
+                res.send(           
+                    ranking
+                    );
                 });     
     })();
 });

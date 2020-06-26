@@ -21,9 +21,9 @@ router.get("/historico/:x/:order/:a_d", (req,res) => {
         order: [[order, a_d]]
         //order: [['createdAt', 'DESC']]
         }).then(historico => {
-            res.json({             
-                historico: historico
-                });
+            res.send(             
+                historico
+                );
             });     
 })();
 
