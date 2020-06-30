@@ -8,17 +8,21 @@ const Upload = require("./Upload");
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
-app.post("/image", (req, res) => {
-    var img = req.body.img
-    (async() =>{
-        await Upload.create({
-            img: img
+router.post("/image", (req, res) => {
+
+    //var avaliacaoId = req.body.avaliacaoId
+    //var titulo = req.body.titulo
+    var image = req.body.image
+
+    Upload.create({
+            //avaliacaoId: avaliacaoId,
+            //titulo: titulo,
+            image: image
         });
 
     res.send("Imagem salva com sucesso!");
 
-})});
-
+});
 
 
 module.exports = router;
