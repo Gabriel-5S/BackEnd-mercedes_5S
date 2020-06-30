@@ -15,6 +15,7 @@ const descricaoController = require("./Dominio/Descricao/DescricaoController");
 const rankingController = require("./Dominio/Ranking/RankingController")
 const infoController = require("./Dominio/Info/InfoController");
 const historicoController = require("./Dominio/Historico/HistoricoController")
+const UploadController = require("./Dominio/Upload/UploadController")
 
 // //match.js
  const { create, all } = require('mathjs')

@@ -7,12 +7,13 @@
     "body-parser": "1.19.0",
     "cors": "^2.8.5",
     "express": "4.17.1",
+    "express-fileupload": "^1.1.7-alpha.3",
     "mathjs": "7.0.1",
     "mysql2": "2.1.0",
     "sequelize": "5.21.11"
   },
   "devDependencies": {
-    "nodemon": "2.0.4"
+    "nodemon": "^2.0.4"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

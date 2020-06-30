@@ -9,6 +9,7 @@ const Avaliacao = require("./Avaliacao");
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
+
 //match.js
 const { create, all } = require('mathjs')
 const config = { }
@@ -141,7 +142,6 @@ router.get("/resultado",(req,res) => {
 router.post("/obtermedias",(req,res) => {
     res.send("falta fazer")
 });
-
 
 
 module.exports = router;
