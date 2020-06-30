@@ -30,7 +30,7 @@ router.get("/historico/:x/:order/:a_d", (req,res) => {
 
 });
 
-router.get("hist_image/:id", (req, res) => {
+router.get("/hist_image/:id", (req, res) => {
     var id = req.params.id
     Upload.findOne({
         where: {id: id}  //Verificando se há a imagem
