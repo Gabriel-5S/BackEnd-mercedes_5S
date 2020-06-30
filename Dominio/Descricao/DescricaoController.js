@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
 //Envia json com as 20 descrições de notas do S requisitado pelo front
-router.post("/descricao/:s", (req, res) => {
+router.get("/descricao/:s", (req, res) => {
     (async () =>{
         descricaoJson = {};
         var s = parseFloat(req.params.s);
