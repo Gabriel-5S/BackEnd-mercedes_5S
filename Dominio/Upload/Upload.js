@@ -9,14 +9,14 @@ const Upload = connection.define("image",{
         type: Sequelize.STRING
     }, 
     image: {
-        type: Sequelize.TEXT
+        type: Sequelize.TEXT('long')
     }
 });
 
-/*
+
 Upload.sync({force: false}).then(() => {
     console.log("Tabela image Criada!")
 });
-*/
+
 
 module.exports = Upload;
