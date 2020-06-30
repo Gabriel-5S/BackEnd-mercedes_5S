@@ -8,7 +8,7 @@ const Upload = require("./Upload");
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
-app.post("/image", (req, res) => {
+router.post("/image", (req, res) => {
     var img = req.body.img
     (async() =>{
         await Upload.create({
@@ -17,7 +17,8 @@ app.post("/image", (req, res) => {
 
     res.send("Imagem salva com sucesso!");
 
-})});
+})()
+});
 
 
 
