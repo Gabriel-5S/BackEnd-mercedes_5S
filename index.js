@@ -15,7 +15,7 @@ const descricaoController = require("./Dominio/Descricao/DescricaoController");
 const rankingController = require("./Dominio/Ranking/RankingController")
 const infoController = require("./Dominio/Info/InfoController");
 const historicoController = require("./Dominio/Historico/HistoricoController")
-const UploadController = require("./Dominio/Upload/UploadController")
+const uploadController = require("./Dominio/Upload/UploadController")
 
 // //match.js
  const { create, all } = require('mathjs')
@@ -43,6 +43,7 @@ const UploadController = require("./Dominio/Upload/UploadController")
  app.use("/",rankingController);
  app.use("/",infoController);
  app.use("/",historicoController);
+ app.use("/",uploadController);
 
 // //Servidor
  app.listen(4000,function(erro){
