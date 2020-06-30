@@ -43,35 +43,35 @@ router.post("/avaliacao/id",(req,res) =>{
 });
 
 //Recebe dados do Front (utilização) e armazena no Json (Question_id_answer)
-router.post("/avaliacao/utilizacao",(req,res) =>{  
+router.post("/avaliacao/u",(req,res) =>{  
     var Question_id_answer_u = req.body.Question_id_answer_u;
     Question_id_answer.Question_id_answer_u = Question_id_answer_u
     res.send(Question_id_answer)
 });
 
 //Recebe dados do Front (organização) e armazena no Json (Question_id_answer)
-router.post("/avaliacao/organizacao",(req,res) =>{  //app.post
+router.post("/avaliacao/o",(req,res) =>{  //app.post
     var Question_id_answer_o = req.body.Question_id_answer_o;
     Question_id_answer.Question_id_answer_o = Question_id_answer_o
     res.send(Question_id_answer)
 });
 
 //Recebe dados do Front (limpeza) e armazena no Json (Question_id_answer)
-router.post("/avaliacao/limpeza",(req,res) =>{  //app.post
+router.post("/avaliacao/l",(req,res) =>{  //app.post
     var Question_id_answer_l = req.body.Question_id_answer_l;
     Question_id_answer.Question_id_answer_l = Question_id_answer_l
     res.send(Question_id_answer)
 });
 
 //Recebe dados do Front (padronização) e armazena no Json (Question_id_answer)
-router.post("/avaliacao/padronizacao",(req,res) =>{  //app.post
+router.post("/avaliacao/p",(req,res) =>{  //app.post
     var Question_id_answer_p = req.body.Question_id_answer_p;
     Question_id_answer.Question_id_answer_p = Question_id_answer_p
     res.send(Question_id_answer)
 });
 
 //Recebe dados do Front (disciplina) e armazena no Json (Question_id_answer)
-router.post("/avaliacao/disciplina",(req,res) =>{  //app.post
+router.post("/avaliacao/d",(req,res) =>{  //app.post
     var Question_id_answer_d = req.body.Question_id_answer_d;
     Question_id_answer.Question_id_answer_d = Question_id_answer_d
     res.send(Question_id_answer)
@@ -84,8 +84,8 @@ var Answer_average_o = 0;
 var Answer_average_l = 0;
 var Answer_average_p = 0;
 var Answer_average_d = 0;
-var Answer_average_3s = 0;
-var Answer_average_5s = 0;
+var Answer_average_3s = 3;
+var Answer_average_5s = 5;
 
 
 
@@ -120,7 +120,7 @@ router.post("/salvabd", (req,res) => {
         Answer_average_p: Answer_average_p,
         Answer_average_d: Answer_average_d,
         Answer_average_3s: Answer_average_3s,
-        Answer_average_5s: Answer_average_5s,
+        Answer_average_5s: Answer_average_5s
     });
 
     res.send("Enviado com sucesso!")
@@ -128,7 +128,7 @@ router.post("/salvabd", (req,res) => {
 });
 
 //Envia dados do BD pra Rota
-router.get("/resultado",(req,res) => {
+router.get("/resultadoteste",(req,res) => {
     Avaliacao.findAll( {raw: true, order:[
         ['id','DESC'] //DESC = decrescente || ASC = crescente
     ]}).then(avaliacao => {
@@ -139,8 +139,18 @@ router.get("/resultado",(req,res) => {
     }); 
 });
 
-router.post("/obtermedias",(req,res) => {
-    res.send("falta fazer")
+router.get("/resultados",(req,res) => {
+    
+    res.send({Form_id: Form_id,
+        User_id: User_id,
+        Cost_center_id: Cost_center_id, 
+        Answer_average_u: Answer_average_u, 
+        Answer_average_o: Answer_average_o,
+        Answer_average_l: Answer_average_l, 
+        Answer_average_p: Answer_average_p, 
+        Answer_average_d: Answer_average_d, 
+        Answer_average_3s: Answer_average_3s,
+        Answer_average_5s: Answer_average_5s})
 });
 
 
