@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const Avaliacao = require("../Avaliacao/Avaliacao")
+const Avaliacao = require("../Avaliacao/Avaliacao");
+const Upload = require("../Upload/Upload");
 
 router.get("/historico/:x/:order/:a_d", (req,res) => {
     (async () => {
@@ -28,5 +29,19 @@ router.get("/historico/:x/:order/:a_d", (req,res) => {
 })();
 
 });
+
+router.get("hist_image/:id", (req, res) => {
+    var id = req.params.id
+    Upload.findOne({
+        where: {id: id}  //Verificando se há a imagem
+    }).then(json => {            //A variável json recebe o resultado de .findOne: se encontrar recebe o JSON, caso contrário recebe undefined
+        if (json != undefined){ 
+            res.send(json.image); 
+        }else{
+            res.sendStatus(404);
+        }
+    })
+});
+
 
 module.exports = router;
