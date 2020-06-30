@@ -9,6 +9,7 @@ const Avaliacao = require("./Avaliacao");
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
+
 //match.js
 const { create, all } = require('mathjs')
 const config = { }
@@ -151,7 +152,6 @@ router.get("/resultados",(req,res) => {
         Answer_average_3s: Answer_average_3s,
         Answer_average_5s: Answer_average_5s})
 });
-
 
 
 module.exports = router;
