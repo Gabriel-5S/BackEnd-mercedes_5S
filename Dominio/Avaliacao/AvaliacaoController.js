@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const router = express.Router();
 const bodyParser = require("body-parser");
-const Avaliacao = require("./Avaliacao");
+const Avaliacao = require("../Avaliacao/Avaliacao");
 //const Ranking = require("../Ranking/CriaRanking")
 
 //Body-Parser
@@ -153,5 +153,14 @@ router.get("/resultados",(req,res) => {
         Answer_average_5s: Answer_average_5s})
 });
 
+router.get("/avaliacaoid",(req,res) => {
+    Avaliacao.findAll({
+        attributes: ['id'],
+        order: [['id','DESC']]
+        }).then(avaliacaoid => {
+            res.send(           
+                avaliacaoid[0]
+        )})
+});
 
 module.exports = router;

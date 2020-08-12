@@ -60,10 +60,10 @@ const Avaliacao = connection.define('avaliacoe',{
     
 
 });
-/*
-//Sincroniza com banco de dados e cria só se não houver uma tabela avaliaçoe
-Avaliacao.sync({force: false}).then(() => {
-    console.log("Tabela Avaliacao Criada")
-});
-*/
+
+// //Sincroniza com banco de dados e cria só se não houver uma tabela avaliaçoe
+// Avaliacao.sync({force: false}).then(() => {
+//     console.log("Tabela Avaliacao Criada")
+// });
+
 module.exports = Avaliacao;

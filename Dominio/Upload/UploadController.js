@@ -8,7 +8,7 @@ const Upload = require("./Upload");
 app.use(bodyParser.urlencoded({limit:'50mb',extended:true}));
 app.use(bodyParser.json({limit:'50mb',extende:true}));
 
-router.post("/image", (req, res) => {
+router.post("/image", (req, res) => {       
 
     //var avaliacaoId = req.body.avaliacaoId
     //var titulo = req.body.titulo
