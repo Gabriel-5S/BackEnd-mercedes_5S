@@ -10,7 +10,7 @@ const Upload = connection.define("image",{
     }, 
     image: {
         type: Sequelize.TEXT('long')
-    }
+    }, 
 });
 
 /*
