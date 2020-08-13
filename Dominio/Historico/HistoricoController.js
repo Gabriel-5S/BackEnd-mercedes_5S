@@ -69,8 +69,8 @@ router.get("/avaliacao/:createdAt/:Question_id_answer_S",(req,res) =>{
         await Avaliacao.findOne ({
             where: {createdAt : createdAt}
         }).then(resultado => {
-            var notas = resultado.Question_id_answer.Question_id_answer_S.notas
-            var justificativas = resultado.Question_id_answer.Question_id_answer_S.justificativas
+            var notas = resultado.Question_id_answer[Question_id_answer_S].notas
+            var justificativas = resultado.Question_id_answer[Question_id_answer_S].justificativas
         }); 
         return res.send({notas: notas, justificativas: justificativas})
     })();

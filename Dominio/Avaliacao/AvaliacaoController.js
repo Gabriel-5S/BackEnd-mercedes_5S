@@ -152,13 +152,13 @@ router.get("/resultados",(req,res) => {
     res.send({Form_id: Form_id,
         User_id: User_id,
         Cost_center_id: Cost_center_id, 
-        Answer_average_u: Answer_average_u, 
-        Answer_average_o: Answer_average_o,
-        Answer_average_l: Answer_average_l, 
-        Answer_average_p: Answer_average_p, 
-        Answer_average_d: Answer_average_d, 
-        Answer_average_3s: Answer_average_3s,
-        Answer_average_5s: Answer_average_5s})
+        Answer_average_u: Answer_average_u.toFixed(2), 
+        Answer_average_o: Answer_average_o.toFixed(2),
+        Answer_average_l: Answer_average_l.toFixed(2), 
+        Answer_average_p: Answer_average_p.toFixed(2), 
+        Answer_average_d: Answer_average_d.toFixed(2), 
+        Answer_average_3s: Answer_average_3s.toFixed(2),
+        Answer_average_5s: Answer_average_5s.toFixed(2)})
 });
 
 router.get("/avaliacaoid",(req,res) => {
