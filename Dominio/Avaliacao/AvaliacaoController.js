@@ -89,21 +89,21 @@ var Answer_average_5s = 5;
 
 
 
-//Calcula Média de cada S e 5S e 3S
-router.post("/calculamedia",(req,res) =>{
+// //Calcula Média de cada S e 5S e 3S
+// router.post("/calculamedia",(req,res) =>{
 
 
-    Answer_average_l = math.mean(Question_id_answer.Question_id_answer_l.notas);
-    Answer_average_o = math.mean(Question_id_answer.Question_id_answer_o.notas);
-    Answer_average_u = math.mean(Question_id_answer.Question_id_answer_u.notas);
-    Answer_average_p = math.mean(Question_id_answer.Question_id_answer_p.notas);
-    Answer_average_d = math.mean(Question_id_answer.Question_id_answer_d.notas);
+//     Answer_average_l = math.mean(Question_id_answer.Question_id_answer_l.notas);
+//     Answer_average_o = math.mean(Question_id_answer.Question_id_answer_o.notas);
+//     Answer_average_u = math.mean(Question_id_answer.Question_id_answer_u.notas);
+//     Answer_average_p = math.mean(Question_id_answer.Question_id_answer_p.notas);
+//     Answer_average_d = math.mean(Question_id_answer.Question_id_answer_d.notas);
 
-    Answer_average_3s = math.mean(Answer_average_u,Answer_average_o,Answer_average_l)
-    Answer_average_5s = math.mean(Answer_average_u,Answer_average_o,Answer_average_l,Answer_average_p,Answer_average_d)
+//     Answer_average_3s = math.mean(Answer_average_u,Answer_average_o,Answer_average_l)
+//     Answer_average_5s = math.mean(Answer_average_u,Answer_average_o,Answer_average_l,Answer_average_p,Answer_average_d)
 
-    res.send(Answer_average_u +  " " +  Answer_average_o +  " " +  Answer_average_l + " " +  Answer_average_p + " " +  Answer_average_d + " " +  Answer_average_3s + " " + Answer_average_5s)
-});
+//     res.send(Answer_average_u +  " " +  Answer_average_o +  " " +  Answer_average_l + " " +  Answer_average_p + " " +  Answer_average_d + " " +  Answer_average_3s + " " + Answer_average_5s)
+// });
 
 
 //Salva no Banco de dados
@@ -140,7 +140,15 @@ router.get("/resultadoteste",(req,res) => {
 });
 
 router.get("/resultados",(req,res) => {
-    
+    Answer_average_l = math.mean(Question_id_answer.Question_id_answer_l.notas);
+    Answer_average_o = math.mean(Question_id_answer.Question_id_answer_o.notas);
+    Answer_average_u = math.mean(Question_id_answer.Question_id_answer_u.notas);
+    Answer_average_p = math.mean(Question_id_answer.Question_id_answer_p.notas);
+    Answer_average_d = math.mean(Question_id_answer.Question_id_answer_d.notas);
+
+    Answer_average_3s = math.mean(Answer_average_u,Answer_average_o,Answer_average_l)
+    Answer_average_5s = math.mean(Answer_average_u,Answer_average_o,Answer_average_l,Answer_average_p,Answer_average_d)
+
     res.send({Form_id: Form_id,
         User_id: User_id,
         Cost_center_id: Cost_center_id, 
