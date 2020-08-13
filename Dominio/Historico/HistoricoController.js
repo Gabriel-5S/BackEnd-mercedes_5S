@@ -62,19 +62,32 @@ router.get("/hist_image/:id", (req, res) => {
     })
 });
 
-router.get("/avaliacao/:createdAt/:Question_id_answer_S",(req,res) =>{  
+router.get("/avaliacao/:id/:Question_id_answer_S",(req,res) =>{  
     (async () => {    
-        var createdAt = req.params.createdAt;
+        var w = {}
+        var id = req.params.id;
         var Question_id_answer_S = req.params.Question_id_answer_S;
         await Avaliacao.findOne ({
-            where: {createdAt : createdAt}
+            where: {id : id}
         }).then(resultado => {
             var notas = resultado.Question_id_answer[Question_id_answer_S].notas
             var justificativas = resultado.Question_id_answer[Question_id_answer_S].justificativas
+            w = {notas: notas, justificativas: justificativas}
         }); 
-        return res.send({notas: notas, justificativas: justificativas})
+        return res.send(w)
     })();
 });
+
+// router.get("/avaliacao/:createdAt/:Question_id_answer_S",(req,res) =>{  
+//     (async () => {    
+//         var createdAt = req.params.createdAt;
+//         var Question_id_answer_S = req.params.Question_id_answer_S;
+//         await Avaliacao.findOne ({
+//             where: {createdAt : createdAt}
+//         }).then(resultado => {
+//             return res.send({notas: resultado.Question_id_answer[Question_id_answer_S].notas, justificativas: resultado.Question_id_answer[Question_id_answer_S].justificativas})
+//     })();
+// });
 
 
 module.exports = router;
