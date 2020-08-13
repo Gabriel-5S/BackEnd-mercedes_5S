@@ -20,4 +20,26 @@ router.get("/ranking/:x",(req, res) => {
     })();
 });
 
+//Envia as notas 5S de um único Centro de custo (para fazer o gráfico)
+router.get("/ranking/5s/:Cost_center_id", (req,res) => {
+    (async () => {
+        var w = []
+        var Cost_center_id = req.params.Cost_center_id;
+        await Avaliacao.findAll({
+        where: {Cost_center_id: Cost_center_id},
+        attributes: ['id','Cost_center_id', 'Answer_average_5s', 'createdAt' ],
+        order: [['createdAt', 'ASC']]
+        //order: [['createdAt', 'DESC']]
+        }).then(ranking => {
+            for (i=0; i< ranking.length; i++) {    
+                var y = ranking[i]['Answer_average_5s']
+                console.log(y)
+                w.push(y)
+                }
+        });
+        return res.send(w);
+        })();
+});
+
+
 module.exports = router;
