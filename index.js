@@ -48,7 +48,8 @@ app.use(bodyParser.json({limit:'50mb',extende:true}));
  app.use("/",uploadController);
 
 // //Servidor
- app.listen(4000,function(erro){
+var porta = process.env.PORT || 4000;
+ app.listen(porta,function(erro){
      if(erro){
          console.log("Ocorreu um erro!");
      }else{
